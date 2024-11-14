@@ -1,6 +1,6 @@
 const { readFileSync } = require('fs');
 
-function gerarFaturaStr (fatura, pecas) {
+function gerarFaturaStr(fatura, pecas) {
   let totalFatura = 0;
   let creditos = 0;
   let faturaStr = `Fatura ${fatura.cliente}\n`;
@@ -51,10 +51,10 @@ function gerarFaturaStr (fatura, pecas) {
     let total = calcularTotalApresentacao(apre, peca);
     creditos += calcularCreditos(apre);
 
-      // mais uma linha da fatura
     faturaStr += `  ${peca.nome}: ${formatMoeda(total)} (${apre.audiencia} assentos)\n`;
     totalFatura += total;
     }
+
   faturaStr += `Valor total: ${formatMoeda(totalFatura)}\n`;
   faturaStr += `Créditos acumulados: ${creditos} \n`;
   return faturaStr;
